@@ -1,27 +1,115 @@
-# Car or Truck Image Classifier
+# Image Classification Template (TensorFlow + Gradio)
 
-This repository contains a deep learning model trained to classify images as either "car" or "truck."
+Train your own image classifier and launch it in a web browser.
 
-**Dataset:**
+## Features
 
-The model was trained on a dataset of car and truck images sourced from Kaggle. 
+* Train on your own images
+* Works with any image classes
+* TensorFlow + VGG16 transfer learning
+* Gradio web interface
+* Confidence scores
+* Confusion matrix
+* Classification report
+* Automatic train/test split
 
-**Limitations:**
+## Installation
 
-* **Current Functionality:** The current implementation only classifies images as either "car" or "truck." It does not identify other objects or people
-* **Colab Dependency:** The provided code is currently optimized for execution on Google Colaboratory and may require adjustments for other environments.
+Install dependencies:
 
-**Future Improvements:**
+```bash
+run :
+pip install -r requirements.txt
+```
 
-* **Expand Classification:** Extend the model to classify additional vehicle types (e.g., buses, motorcycles, bicycles).
-* **Improve Accuracy:** Explore techniques like data augmentation, model architecture optimization, and hyperparameter tuning to enhance model accuracy.
-* **Deploy on a Local Machine:** Adapt the code to run locally on different operating systems.
-* **Create a User-Friendly Interface:** Develop a more user-friendly interface with options for image selection, prediction visualization, and model evaluation.
+## Dataset Structure
 
-**Contributing:**
+Example:
 
-Contributions to this project are welcome! If you have any suggestions, improvements, or bug fixes, please feel free to submit a pull request.
+```text
+dataset/
+├── cats/
+│   ├── image1.jpg
+│   └── image2.jpg
+│
+├── dogs/
+│   ├── image1.jpg
+│   └── image2.jpg
+```
 
-**Disclaimer:**
+You can use any class names.
 
-This project is for educational and experimental purposes. The model may not always be accurate and should not be relied upon for critical applications.
+## Training
+
+Run:
+
+```bash
+python train.py
+```
+
+You may either:
+
+* Press Enter to use the included `dataset` folder
+* Provide the path to your own dataset
+
+When running:
+
+python train.py
+
+you will see:
+
+Dataset folder path (press Enter for './dataset'):
+
+You can:
+
+Press Enter to use:
+
+dataset/
+
+or provide your own path:
+
+Windows:
+
+C:\Users\John\Downloads\CatsVsDogs
+
+Linux / macOS:
+
+/home/john/datasets/cats_vs_dogs
+
+The dataset folder should contain class folders exactly as shown in the examples above.
+
+Example:
+
+```text
+C:\Datasets\CatsVsDogs
+```
+
+The trained model is saved automatically:
+
+```text
+saved_model/model.h5
+```
+
+## Launch the Interface
+
+Run:
+
+```bash
+python GUI.py
+```
+
+Upload an image and receive:
+
+* Predicted class
+* Confidence score
+* Probability distribution
+
+## Notes
+
+* At least two classes are required.
+* More images generally improve performance.
+* The first training run may take several minutes depending on hardware.
+
+## License
+
+Personal and commercial use.
